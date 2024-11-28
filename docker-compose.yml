@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - APP_MONGO_DATABASE_URL=mongodb://mongo:27017/pw7
+      - JWT_SECRET=0eedd1cbb802bae4fe129bddd0599c4394470dd0d12f4690978e10432561d480
+    networks:
+      - app-mongo-network
+
+  mongo:
+    image: mongo:latest
+    networks:
+      - app-mongo-network
+    ports:
+      - "27017:27017"  # MongoDB port
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  app-mongo-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

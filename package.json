@@ -1,0 +1,22 @@
+{
+  "name": "pw7",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node ./src/app.js",
+    "test": "node --test",
+	"test:autoCann": "node ./tests/load/authRoutes.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/cookie": "9.4.0",
+    "fastify": "4.28.1",
+    "jsonwebtoken": "9.0.2",
+    "mongodb": "6.10.0"
+  },
+  "devDependencies": {
+    "autocannon": "^8.0.0"
+  }
+}
